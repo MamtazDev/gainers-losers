@@ -10,16 +10,17 @@ const Home = () => {
           </h2>
           <ul>
             {countryName.map((countryData, index) => (
-              <li key={index} className="pb-4">
+              <li key={index} className="pb-4 flex items-center gap-2">
                 <input
                   id={countryData}
                   type="radio"
-                  name="countrySelection" // Add a unique name attribute here
-                  className="mr-2"
+                  name="countrySelection"
+                  className="mr-2 form-radio w-[14px] h-[14px] cursor-pointer appearance-none rounded-full border-2 border-gray-[#73C2FB] checked:bg-[#73C2FB] checked:border-transparent checked:ring-2 checked:ring-[#73C2FB] checked:ring-offset-2 checked:ring-opacity-50"
                 />
+
                 <label
                   htmlFor={countryData}
-                  className="uppercase text-base font-semibold text-[#191E29]">
+                  className="uppercase text-base font-semibold text-[#191E29] cursor-pointer">
                   {countryData}
                 </label>
               </li>
@@ -307,7 +308,10 @@ const Home = () => {
                         </p>
                       </td>
                       <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.color ? "text-[#EB0B0B]" : null
+                          } text-sm font-medium text-[#191E29]`}>
                           {tableItem.oneYear}
                         </p>
                       </td>

@@ -78,6 +78,7 @@ export const tableData = [
     threeMonth: "20.00 B",
     sixMonth: "40.00 B",
     oneYear: "60.00 B",
+    color: "yes",
   },
   {
     no: 7,
@@ -91,5 +92,6 @@ export const tableData = [
     threeMonth: "20.00 B",
     sixMonth: "40.00 B",
     oneYear: "60.00 B",
+    color: "yes",
   },
 ];
