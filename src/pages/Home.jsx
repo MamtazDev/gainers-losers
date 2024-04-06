@@ -1,6 +1,56 @@
+import { useState } from "react";
 import { countryName, tableData } from "../utils/data";
 
 const Home = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(7);
+  const [sortOrder, setSortOrder] = useState({
+    column: null,
+    ascending: true,
+  });
+
+  const handleSort = (columnName) => {
+    setSortOrder((prevState) => ({
+      column: columnName,
+      ascending: prevState.column === columnName ? !prevState.ascending : true,
+    }));
+  };
+
+  const sortedTableData = () => {
+    const { column, ascending } = sortOrder;
+    if (column) {
+      return tableData.slice().sort((a, b) => {
+        if (a[column] === b[column]) {
+          return 0;
+        }
+        if (ascending) {
+          return a[column] > b[column] ? 1 : -1;
+        } else {
+          return a[column] < b[column] ? 1 : -1;
+        }
+      });
+    }
+    return tableData;
+  };
+
+  // Pagination
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedTableData().slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  const pageNumbers = [];
+  for (
+    let i = 1;
+    i <= Math.ceil(sortedTableData().length / itemsPerPage);
+    i++
+  ) {
+    pageNumbers.push(i);
+  }
   return (
     <div className="home py-14">
       <div className="container px-5">
@@ -20,7 +70,8 @@ const Home = () => {
 
                 <label
                   htmlFor={countryData}
-                  className="uppercase text-base font-semibold text-[#191E29] cursor-pointer">
+                  className="uppercase text-base font-semibold text-[#191E29] cursor-pointer"
+                >
                   {countryData}
                 </label>
               </li>
@@ -38,19 +89,23 @@ const Home = () => {
                   <tr>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">No.</span>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">Name</span>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("marketCap")}
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">Market Cap</span>
                       <div className="inline-block">
                         <div
@@ -62,7 +117,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: " 1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -72,25 +128,30 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">Industry</span>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">Sector</span>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("oneDay")}
+                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">1 Day</span>
                       <div className="inline-block">
                         <div
@@ -102,7 +163,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: " 1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -112,12 +174,15 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("oneWeek")}
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">1 Week</span>
                       <div className="inline-block">
                         <div
@@ -129,7 +194,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: " 1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -139,12 +205,15 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("oneMonth")}
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">1 Month</span>
                       <div className="inline-block">
                         <div
@@ -156,7 +225,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -166,12 +236,15 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("threeMonth")}
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">3 Months</span>
                       <div className="inline-block">
                         <div
@@ -183,7 +256,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: " 1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -193,12 +267,15 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("sixMonth")}
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">6 Months</span>
                       <div className="inline-block">
                         <div
@@ -210,7 +287,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: " 1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -220,12 +298,15 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize ">
+                      onClick={() => handleSort("oneYear")}
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                    >
                       <span className="pr-2">1 Year</span>
                       <div className="inline-block">
                         <div
@@ -237,7 +318,8 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             marginBottom: " 1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
-                          }}></div>
+                          }}
+                        ></div>
                         <div
                           className="filter-desc"
                           style={{
@@ -247,16 +329,18 @@ const Home = () => {
                             borderRight: "5px solid transparent",
                             borderTop: "5px solid rgb(204, 204, 204)",
                             marginTop: "1px",
-                          }}></div>
+                          }}
+                        ></div>
                       </div>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {tableData.map((tableItem, index) => (
+                  {currentItems.map((tableItem, index) => (
                     <tr
                       className="hover:bg-gray-100 hover:cursor-pointer"
-                      key={index}>
+                      key={index}
+                    >
                       <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.no}
@@ -311,7 +395,8 @@ const Home = () => {
                         <p
                           className={`${
                             tableItem.color ? "text-[#EB0B0B]" : null
-                          } text-sm font-medium text-[#191E29]`}>
+                          } text-sm font-medium text-[#191E29]`}
+                        >
                           {tableItem.oneYear}
                         </p>
                       </td>
@@ -321,6 +406,21 @@ const Home = () => {
               </table>
             </div>
           </div>
+          <ul className="flex justify-center mt-4">
+            {pageNumbers.map((number) => (
+              <li
+                key={number}
+                className={`mx-1 w-7 h-7  flex items-center justify-center text-sm  rounded-full border ${
+                  currentPage === number
+                    ? "bg-gray-300"
+                    : "bg-gray-100 hover:bg-gray-200"
+                } cursor-pointer`}
+                onClick={() => paginate(number)}
+              >
+                {number}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
