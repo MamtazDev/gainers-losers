@@ -18,15 +18,11 @@ const Home = () => {
   const sortedTableData = () => {
     const { column, ascending } = sortOrder;
     if (column) {
-      return tableData.slice().sort((a, b) => {
+      return [...tableData].sort((a, b) => {
         if (a[column] === b[column]) {
           return 0;
         }
-        if (ascending) {
-          return a[column] > b[column] ? 1 : -1;
-        } else {
-          return a[column] < b[column] ? 1 : -1;
-        }
+        return ascending ? a[column] - b[column] : b[column] - a[column];
       });
     }
     return tableData;
@@ -50,7 +46,6 @@ const Home = () => {
                   onChange={() => setSelectedCountryIndex(index)}
                   className="mr-2 form-radio w-[14px] h-[14px] cursor-pointer appearance-none rounded-full border-2 border-gray-[#73C2FB] checked:bg-[#73C2FB] checked:border-transparent checked:ring-2 checked:ring-[#73C2FB] checked:ring-offset-2 checked:ring-opacity-50"
                 />
-
                 <label
                   htmlFor={countryData}
                   className="uppercase text-base font-semibold text-[#191E29] cursor-pointer"
@@ -76,14 +71,12 @@ const Home = () => {
                     >
                       <span className="pr-2">No.</span>
                     </th>
-
                     <th
                       scope="col"
                       className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Name</span>
                     </th>
-
                     <th
                       scope="col"
                       onClick={() => handleSort("marketCap")}
@@ -98,7 +91,7 @@ const Home = () => {
                             height: "0px",
                             borderLeft: "5px solid transparent",
                             borderRight: "5px solid transparent",
-                            marginBottom: " 1px",
+                            marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
                           }}
                         ></div>
@@ -115,21 +108,18 @@ const Home = () => {
                         ></div>
                       </div>
                     </th>
-
                     <th
                       scope="col"
                       className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Industry</span>
                     </th>
-
                     <th
                       scope="col"
                       className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Sector</span>
                     </th>
-
                     <th
                       scope="col"
                       onClick={() => handleSort("oneDay")}
@@ -144,7 +134,7 @@ const Home = () => {
                             height: "0px",
                             borderLeft: "5px solid transparent",
                             borderRight: "5px solid transparent",
-                            marginBottom: " 1px",
+                            marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
                           }}
                         ></div>
@@ -175,7 +165,7 @@ const Home = () => {
                             height: "0px",
                             borderLeft: "5px solid transparent",
                             borderRight: "5px solid transparent",
-                            marginBottom: " 1px",
+                            marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
                           }}
                         ></div>
@@ -237,7 +227,7 @@ const Home = () => {
                             height: "0px",
                             borderLeft: "5px solid transparent",
                             borderRight: "5px solid transparent",
-                            marginBottom: " 1px",
+                            marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
                           }}
                         ></div>
@@ -268,7 +258,7 @@ const Home = () => {
                             height: "0px",
                             borderLeft: "5px solid transparent",
                             borderRight: "5px solid transparent",
-                            marginBottom: " 1px",
+                            marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
                           }}
                         ></div>
@@ -299,7 +289,7 @@ const Home = () => {
                             height: "0px",
                             borderLeft: "5px solid transparent",
                             borderRight: "5px solid transparent",
-                            marginBottom: " 1px",
+                            marginBottom: "1px",
                             borderBottom: "5px solid rgb(204, 204, 204)",
                           }}
                         ></div>
@@ -326,7 +316,6 @@ const Home = () => {
                     >
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {/* {tableItem.no}  */}
                           {index + 1}
                         </p>
                       </td>
@@ -337,7 +326,7 @@ const Home = () => {
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.marketCap}
+                          {tableItem.marketCap.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
@@ -352,27 +341,27 @@ const Home = () => {
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.oneDay}
+                          {tableItem.oneDay.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.oneWeek}
+                          {tableItem.oneWeek.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.oneMonth}
+                          {tableItem.oneMonth.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.threeMonth}
+                          {tableItem.threeMonth.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.sixMonth}
+                          {tableItem.sixMonth.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
@@ -381,7 +370,7 @@ const Home = () => {
                             tableItem.oneYear <= 0 ? "text-[#EB0B0B]" : null
                           } text-sm font-medium text-[#191E29]`}
                         >
-                          {tableItem.oneYear}.00 B
+                          {tableItem.oneYear.toFixed(2)} B
                         </p>
                       </td>
                     </tr>
