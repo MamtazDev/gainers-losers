@@ -61,8 +61,8 @@ const Home = () => {
         </h2>
         <div className="table_wrapper">
           <div className="w-full shadow-customShadow rounded-[8px] bg-white">
-            <div className="border-gray-200 w-full bg-white rounded-[8px] overflow-x-auto">
-              <table className="w-full leading-normal ">
+            <div className="border-gray-200 w-full bg-white rounded-[8px] overflow-auto no_scrollbar max-h-[800px] ">
+              <table className="w-full leading-normal no_scrollbar">
                 <thead className="  px-6 py-4  hover:cursor-pointer uppercase ">
                   <tr>
                     <th
@@ -325,7 +325,13 @@ const Home = () => {
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.marketCap <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
+                        >
                           {tableItem.marketCap.toFixed(2)} B
                         </p>
                       </td>
@@ -340,35 +346,67 @@ const Home = () => {
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.oneDay <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
+                        >
                           {tableItem.oneDay.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.oneWeek <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
+                        >
                           {tableItem.oneWeek.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.oneMonth <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
+                        >
                           {tableItem.oneMonth.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.threeMonth <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
+                        >
                           {tableItem.threeMonth.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
+                        <p
+                          className={`${
+                            tableItem.sixMonth <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
+                        >
                           {tableItem.sixMonth.toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p
                           className={`${
-                            tableItem.oneYear <= 0 ? "text-[#EB0B0B]" : null
-                          } text-sm font-medium text-[#191E29]`}
+                            tableItem.oneYear <= 0
+                              ? "text-[#EB0B0B]"
+                              : "text-[#191E29]"
+                          } text-sm font-medium `}
                         >
                           {tableItem.oneYear.toFixed(2)} B
                         </p>

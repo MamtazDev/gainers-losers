@@ -10,3 +10,11 @@ body {
 .custom-radio-color:checked+.custom-radio-label::before {
     background-color: #f00;
 }
+
+
+
+
+
+.no_scrollbar::-webkit-scrollbar {
+    display: none !important;
+}
