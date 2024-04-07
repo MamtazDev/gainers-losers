@@ -12,7 +12,7 @@ export const tableData = [
     oneMonth: "80.00 B",
     threeMonth: "120.00 B",
     sixMonth: "115.00 B",
-    oneYear: "200.00 B",
+    oneYear: 200.0,
   },
   {
     no: 2,
@@ -25,7 +25,7 @@ export const tableData = [
     oneMonth: "81.00 B",
     threeMonth: "110.00 B",
     sixMonth: "60.00 B",
-    oneYear: "40.00 B",
+    oneYear: 40.0,
   },
   {
     no: 3,
@@ -38,7 +38,7 @@ export const tableData = [
     oneMonth: "27.00 B",
     threeMonth: "80.00 B",
     sixMonth: "60.00 B",
-    oneYear: "120.00 B",
+    oneYear: 120.0,
   },
   {
     no: 4,
@@ -51,7 +51,7 @@ export const tableData = [
     oneMonth: "81.00 B",
     threeMonth: "20.00 B",
     sixMonth: "40.00 B",
-    oneYear: "60.00 B",
+    oneYear: -60.0,
   },
   {
     no: 5,
@@ -64,7 +64,7 @@ export const tableData = [
     oneMonth: "81.00 B",
     threeMonth: "20.00 B",
     sixMonth: "40.00 B",
-    oneYear: "60.00 B",
+    oneYear: 60,
   },
   {
     no: 6,
@@ -77,8 +77,7 @@ export const tableData = [
     oneMonth: "81.00 B",
     threeMonth: "20.00 B",
     sixMonth: "40.00 B",
-    oneYear: "60.00 B",
-    color: "yes",
+    oneYear: -60,
   },
   {
     no: 7,
@@ -91,8 +90,7 @@ export const tableData = [
     oneMonth: "81.00 B",
     threeMonth: "20.00 B",
     sixMonth: "40.00 B",
-    oneYear: "60.00 B",
-    color: "yes",
+    oneYear: -60.0,
   },
   {
     no: 8,
@@ -105,7 +103,7 @@ export const tableData = [
     oneMonth: "30.00 B",
     threeMonth: "40.00 B",
     sixMonth: "50.00 B",
-    oneYear: "100.00 B",
+    oneYear: 100.0,
   },
   {
     no: 9,
@@ -118,7 +116,7 @@ export const tableData = [
     oneMonth: "25.00 B",
     threeMonth: "35.00 B",
     sixMonth: "45.00 B",
-    oneYear: "95.00 B",
+    oneYear: 95.0,
   },
   {
     no: 10,
@@ -131,7 +129,7 @@ export const tableData = [
     oneMonth: "27.00 B",
     threeMonth: "37.00 B",
     sixMonth: "47.00 B",
-    oneYear: "97.00 B",
+    oneYear: 97.0,
   },
   {
     no: 11,
@@ -144,7 +142,7 @@ export const tableData = [
     oneMonth: "23.00 B",
     threeMonth: "33.00 B",
     sixMonth: "43.00 B",
-    oneYear: "93.00 B",
+    oneYear: 93.0,
   },
   {
     no: 12,
@@ -157,7 +155,7 @@ export const tableData = [
     oneMonth: "22.00 B",
     threeMonth: "32.00 B",
     sixMonth: "42.00 B",
-    oneYear: "92.00 B",
+    oneYear: 92.0,
   },
   {
     no: 13,
@@ -170,7 +168,7 @@ export const tableData = [
     oneMonth: "26.00 B",
     threeMonth: "36.00 B",
     sixMonth: "46.00 B",
-    oneYear: "96.00 B",
+    oneYear: 96.0,
   },
   {
     no: 14,
@@ -183,6 +181,6 @@ export const tableData = [
     oneMonth: "24.00 B",
     threeMonth: "34.00 B",
     sixMonth: "44.00 B",
-    oneYear: "94.00 B",
+    oneYear: 94.0,
   },
 ];

@@ -2,8 +2,7 @@ import { useState } from "react";
 import { countryName, tableData } from "../utils/data";
 
 const Home = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(7);
+  const [selectedCountryIndex, setSelectedCountryIndex] = useState(0);
   const [sortOrder, setSortOrder] = useState({
     column: null,
     ascending: true,
@@ -33,24 +32,6 @@ const Home = () => {
     return tableData;
   };
 
-  // Pagination
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = sortedTableData().slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  const pageNumbers = [];
-  for (
-    let i = 1;
-    i <= Math.ceil(sortedTableData().length / itemsPerPage);
-    i++
-  ) {
-    pageNumbers.push(i);
-  }
   return (
     <div className="home py-14">
       <div className="container px-5">
@@ -65,6 +46,8 @@ const Home = () => {
                   id={countryData}
                   type="radio"
                   name="countrySelection"
+                  checked={index === selectedCountryIndex}
+                  onChange={() => setSelectedCountryIndex(index)}
                   className="mr-2 form-radio w-[14px] h-[14px] cursor-pointer appearance-none rounded-full border-2 border-gray-[#73C2FB] checked:bg-[#73C2FB] checked:border-transparent checked:ring-2 checked:ring-[#73C2FB] checked:ring-offset-2 checked:ring-opacity-50"
                 />
 
@@ -336,14 +319,15 @@ const Home = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {currentItems.map((tableItem, index) => (
+                  {sortedTableData().map((tableItem, index) => (
                     <tr
                       className="hover:bg-gray-100 hover:cursor-pointer"
                       key={index}
                     >
                       <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.no}
+                          {/* {tableItem.no}  */}
+                          {index + 1}
                         </p>
                       </td>
                       <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
@@ -394,10 +378,10 @@ const Home = () => {
                       <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p
                           className={`${
-                            tableItem.color ? "text-[#EB0B0B]" : null
+                            tableItem.oneYear <= 0 ? "text-[#EB0B0B]" : null
                           } text-sm font-medium text-[#191E29]`}
                         >
-                          {tableItem.oneYear}
+                          {tableItem.oneYear}.00 B
                         </p>
                       </td>
                     </tr>
@@ -406,21 +390,6 @@ const Home = () => {
               </table>
             </div>
           </div>
-          <ul className="flex justify-center mt-4">
-            {pageNumbers.map((number) => (
-              <li
-                key={number}
-                className={`mx-1 w-7 h-7  flex items-center justify-center text-sm  rounded-full border ${
-                  currentPage === number
-                    ? "bg-gray-300"
-                    : "bg-gray-100 hover:bg-gray-200"
-                } cursor-pointer`}
-                onClick={() => paginate(number)}
-              >
-                {number}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </div>
