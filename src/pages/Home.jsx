@@ -34,7 +34,7 @@ const Home = () => {
 
   return (
     <div className="home py-14">
-      <div className="container px-5">
+      <div className="container px-6">
         <div className="country pb-10">
           <h2 className="text-2xl font-semibold capitalize text-[#191E29] pb-6">
             Country
@@ -68,18 +68,18 @@ const Home = () => {
           <div className="w-full shadow-customShadow rounded-[8px] bg-white">
             <div className="border-gray-200 w-full bg-white rounded-[8px] overflow-x-auto">
               <table className="w-full leading-normal ">
-                <thead className="  px-5 py-4  hover:cursor-pointer uppercase ">
+                <thead className="  px-6 py-4  hover:cursor-pointer uppercase ">
                   <tr>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">No.</span>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Name</span>
                     </th>
@@ -87,7 +87,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("marketCap")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Market Cap</span>
                       <div className="inline-block">
@@ -118,14 +118,14 @@ const Home = () => {
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Industry</span>
                     </th>
 
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Sector</span>
                     </th>
@@ -133,7 +133,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneDay")}
-                      className="text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">1 Day</span>
                       <div className="inline-block">
@@ -164,7 +164,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneWeek")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">1 Week</span>
                       <div className="inline-block">
@@ -195,7 +195,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">1 Month</span>
                       <div className="inline-block">
@@ -226,7 +226,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("threeMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">3 Months</span>
                       <div className="inline-block">
@@ -257,7 +257,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("sixMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">6 Months</span>
                       <div className="inline-block">
@@ -288,7 +288,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneYear")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-3 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">1 Year</span>
                       <div className="inline-block">
@@ -324,58 +324,58 @@ const Home = () => {
                       className="hover:bg-gray-100 hover:cursor-pointer"
                       key={index}
                     >
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {/* {tableItem.no}  */}
                           {index + 1}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29] uppercase">
                           {tableItem.name}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.marketCap}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.industry}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.sector}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.oneDay}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.oneWeek}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.oneMonth}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.threeMonth}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
                           {tableItem.sixMonth}
                         </p>
                       </td>
-                      <td className="py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p
                           className={`${
                             tableItem.oneYear <= 0 ? "text-[#EB0B0B]" : null
