@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { countryName, tableData } from "../utils/data";
+import { FadeLoader } from "react-spinners";
 
 const Home = () => {
+  const [storedData, setStoredData] = useState([]);
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [permit, setPermit] = useState(true);
   const [selectedCountryIndex, setSelectedCountryIndex] = useState(0);
   const [sortOrder, setSortOrder] = useState({
     column: null,
     ascending: true,
   });
+
+  const sever_url = import.meta.env.VITE_SERVER_URL;
 
   const handleSort = (columnName) => {
     setSortOrder((prevState) => ({
@@ -28,6 +35,51 @@ const Home = () => {
     return tableData;
   };
 
+  const refetch = async () => {
+    setIsLoading(true);
+    fetch(`${sever_url}/gain-losses`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.data?.data?.length > 0) {
+          setData(data?.data?.data);
+          setStoredData(data?.data?.data);
+        }
+      })
+      .finally(() => setIsLoading(false));
+  };
+
+  useMemo(() => {
+    if (permit) {
+      refetch();
+      setPermit(false);
+    } else {
+      return () => {};
+    }
+    return () => {};
+  }, []);
+
+  const handleFilter = async (index) => {
+    setSelectedCountryIndex(index);
+    setIsLoading(true);
+    if (index === 0) {
+      setData(storedData);
+      setIsLoading(false);
+    }
+    if (index === 1) {
+      const result = await storedData?.filter(
+        (item) => item?.Country === "USA"
+      );
+      setData(result);
+    }
+    if (index === 2) {
+      const result = await storedData?.filter(
+        (item) => item?.Country !== "USA"
+      );
+      setData(result);
+    }
+    setIsLoading(false);
+  };
+
   return (
     <div className="home py-14">
       <div className="container px-6">
@@ -43,7 +95,7 @@ const Home = () => {
                   type="radio"
                   name="countrySelection"
                   checked={index === selectedCountryIndex}
-                  onChange={() => setSelectedCountryIndex(index)}
+                  onChange={() => handleFilter(index)}
                   className="mr-2 form-radio w-[14px] h-[14px] cursor-pointer appearance-none rounded-full border-2 border-gray-[#73C2FB] checked:bg-[#73C2FB] checked:border-transparent checked:ring-2 checked:ring-[#73C2FB] checked:ring-offset-2 checked:ring-opacity-50"
                 />
                 <label
@@ -309,7 +361,7 @@ const Home = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedTableData().map((tableItem, index) => (
+                  {data?.map((tableItem, index) => (
                     <tr
                       className="hover:bg-gray-100 hover:cursor-pointer"
                       key={index}
@@ -321,28 +373,28 @@ const Home = () => {
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29] uppercase">
-                          {tableItem.name}
+                          {tableItem.Country}
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p
                           className={`${
-                            tableItem.marketCap <= 0
+                            tableItem["Market Cap"] <= 0
                               ? "text-[#EB0B0B]"
                               : "text-[#191E29]"
                           } text-sm font-medium `}
                         >
-                          {tableItem.marketCap.toFixed(2)} B
+                          {parseFloat(tableItem["Market Cap"]).toFixed(2)} B
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.industry}
+                          {tableItem.Industry}
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.sector}
+                          {tableItem.Sector}
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
@@ -415,6 +467,12 @@ const Home = () => {
                   ))}
                 </tbody>
               </table>
+
+              {isLoading && (
+                <div className="w-full h-[500px] flex justify-center items-center">
+                  <FadeLoader color="#36d7b7" speedMultiplier={2} />
+                </div>
+              )}
             </div>
           </div>
         </div>
