@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
 import { FadeLoader } from "react-spinners";
+import { Tooltip } from "react-tooltip";
 import { countryName, tableData } from "../utils/data";
+import { truncateString } from "../utils/utils";
 
 const Home = () => {
   const [storedData, setStoredData] = useState([]);
@@ -372,9 +374,16 @@ const Home = () => {
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29] uppercase">
-                          {tableItem.Company}
-                        </p>
+                        <div
+                          id={`Company-${index}`}
+                          className="text-sm font-medium text-[#191E29] uppercase"
+                        >
+                          {truncateString(tableItem.Company, 15)}
+                          <Tooltip
+                            anchorSelect={`#Company-${index}`}
+                            content={tableItem.Company}
+                          />
+                        </div>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p
@@ -388,14 +397,28 @@ const Home = () => {
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.Industry}
-                        </p>
+                        <div
+                          id={`Industry-${index}`}
+                          className="text-sm font-medium text-[#191E29]"
+                        >
+                          {truncateString(tableItem.Industry, 20)}
+                          <Tooltip
+                            anchorSelect={`#Industry-${index}`}
+                            content={tableItem.Industry}
+                          />
+                        </div>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
-                        <p className="text-sm font-medium text-[#191E29]">
-                          {tableItem.Sector}
-                        </p>
+                        <div
+                          id={`Sector-${index}`}
+                          className="text-sm font-medium text-[#191E29]"
+                        >
+                          {truncateString(tableItem.Sector, 20)}
+                          <Tooltip
+                            anchorSelect={`#Sector-${index}`}
+                            content={tableItem.Sector}
+                          />
+                        </div>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p
