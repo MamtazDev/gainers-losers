@@ -373,7 +373,7 @@ const Home = () => {
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
                         <p className="text-sm font-medium text-[#191E29] uppercase">
-                          {tableItem.Country}
+                          {tableItem.Company}
                         </p>
                       </td>
                       <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
