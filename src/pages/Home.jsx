@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { countryName, tableData } from "../utils/data";
 import { FadeLoader } from "react-spinners";
+import { countryName, tableData } from "../utils/data";
 
 const Home = () => {
   const [storedData, setStoredData] = useState([]);

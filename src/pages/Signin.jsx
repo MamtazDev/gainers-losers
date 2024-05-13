@@ -1,6 +1,33 @@
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import navBrand from "../assets/nav-brand.png";
+import { useAuth } from "../contexts/AuthContextComp";
 
 function Signin() {
+  const [data, setData] = useState({ email: "", password: "" });
+  const navigate = useNavigate();
+  const { userSignIn } = useAuth();
+
+  const submitHandler = async () => {
+    const res = await fetch("http://localhost:8000/v1/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await res.json();
+
+    if (result?.user) {
+      userSignIn(result);
+      navigate("/");
+      toast.success("Login successfull.");
+    } else {
+      toast.error("Login failed.");
+    }
+  };
+
   return (
     <div>
       <div className="bg-gray-50 font-[sans-serif] text-[#333]">
@@ -24,6 +51,9 @@ function Signin() {
                   required
                   className="w-full text-sm px-4 py-3 rounded outline-none border-2 focus:border-blue-500"
                   placeholder="Email address"
+                  onChange={(e) =>
+                    setData((prev) => ({ ...prev, email: e.target.value }))
+                  }
                 />
               </div>
               <div>
@@ -33,6 +63,9 @@ function Signin() {
                   required
                   className="w-full text-sm px-4 py-3 rounded outline-none border-2 focus:border-blue-500"
                   placeholder="Password"
+                  onChange={(e) =>
+                    setData((prev) => ({ ...prev, password: e.target.value }))
+                  }
                 />
               </div>
               <div className="flex items-center justify-between gap-4">
@@ -58,6 +91,7 @@ function Signin() {
               </div>
               <div className="!mt-10">
                 <button
+                  onClick={submitHandler}
                   type="button"
                   className="w-full py-2.5 px-4 text-sm rounded text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
                 >
