@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FadeLoader } from "react-spinners";
 import { Tooltip } from "react-tooltip";
 import { countryName, tableData } from "../utils/data";
@@ -27,7 +27,7 @@ const Home = () => {
   const sortedTableData = () => {
     const { column, ascending } = sortOrder;
     if (column) {
-      return [...tableData].sort((a, b) => {
+      return [...data].sort((a, b) => {
         if (a[column] === b[column]) {
           return 0;
         }
@@ -36,6 +36,44 @@ const Home = () => {
     }
     return tableData;
   };
+
+  // const sortedTableData = () => {
+  //   const { column, ascending } = sortOrder;
+  //   if (column) {
+  //     return [...data].sort((a, b) => {
+  //       // Function to extract numeric part of the string
+  //       const extractNumericPart = (str) => {
+  //         const match = str.match(/[0-9.]+/);
+  //         return match ? parseFloat(match[0]) : 0;
+  //       };
+
+  //       // Extract numeric values from a[column] and b[column]
+  //       const aValue =
+  //         typeof a[column] === "string"
+  //           ? extractNumericPart(a[column])
+  //           : a[column];
+  //       const bValue =
+  //         typeof b[column] === "string"
+  //           ? extractNumericPart(b[column])
+  //           : b[column];
+
+  //       // If both values are equal, return 0
+  //       if (aValue === bValue) {
+  //         return 0;
+  //       }
+  //       // If ascending is true, sort in ascending order, otherwise sort in descending order
+  //       return ascending ? aValue - bValue : bValue - aValue;
+  //     });
+  //   }
+  //   return tableData;
+  // };
+
+  useEffect(() => {
+    if (sortOrder.column) {
+      setData(sortedTableData());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sortOrder]);
 
   const refetch = async () => {
     setIsLoading(true);
