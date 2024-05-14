@@ -130,20 +130,20 @@ const Home = () => {
                   <tr className="">
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">No.</span>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Name</span>
                     </th>
                     <th
                       scope="col"
                       onClick={() => handleSort("Market Cap")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Market Cap</span>
                       <div className="inline-block">
@@ -173,20 +173,20 @@ const Home = () => {
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Industry</span>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Sector</span>
                     </th>
                     <th
                       scope="col"
                       onClick={() => handleSort("oneDay")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">1 Day</span>
                       <div className="inline-block">
@@ -217,7 +217,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneWeek")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">1 Week</span>
                       <div className="inline-block">
@@ -248,7 +248,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">1 Month</span>
                       <div className="inline-block">
@@ -279,7 +279,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("threeMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">3 Months</span>
                       <div className="inline-block">
@@ -310,7 +310,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("sixMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">6 Months</span>
                       <div className="inline-block">
@@ -341,7 +341,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneYear")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] capitalize text-right"
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] capitalize text-right"
                     >
                       <span className="pr-2">1 Year</span>
                       <div className="inline-block">
