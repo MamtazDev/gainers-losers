@@ -28,45 +28,16 @@ const Home = () => {
     const { column, ascending } = sortOrder;
     if (column) {
       return [...data].sort((a, b) => {
-        if (a[column] === b[column]) {
+        if (parseFloat(a[column]) === parseFloat(b[column])) {
           return 0;
         }
-        return ascending ? a[column] - b[column] : b[column] - a[column];
+        return ascending
+          ? parseFloat(a[column]) - parseFloat(b[column])
+          : parseFloat(b[column]) - parseFloat(a[column]);
       });
     }
     return tableData;
   };
-
-  // const sortedTableData = () => {
-  //   const { column, ascending } = sortOrder;
-  //   if (column) {
-  //     return [...data].sort((a, b) => {
-  //       // Function to extract numeric part of the string
-  //       const extractNumericPart = (str) => {
-  //         const match = str.match(/[0-9.]+/);
-  //         return match ? parseFloat(match[0]) : 0;
-  //       };
-
-  //       // Extract numeric values from a[column] and b[column]
-  //       const aValue =
-  //         typeof a[column] === "string"
-  //           ? extractNumericPart(a[column])
-  //           : a[column];
-  //       const bValue =
-  //         typeof b[column] === "string"
-  //           ? extractNumericPart(b[column])
-  //           : b[column];
-
-  //       // If both values are equal, return 0
-  //       if (aValue === bValue) {
-  //         return 0;
-  //       }
-  //       // If ascending is true, sort in ascending order, otherwise sort in descending order
-  //       return ascending ? aValue - bValue : bValue - aValue;
-  //     });
-  //   }
-  //   return tableData;
-  // };
 
   useEffect(() => {
     if (sortOrder.column) {
@@ -171,7 +142,7 @@ const Home = () => {
                     </th>
                     <th
                       scope="col"
-                      onClick={() => handleSort("marketCap")}
+                      onClick={() => handleSort("Market Cap")}
                       className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
                     >
                       <span className="pr-2">Market Cap</span>
