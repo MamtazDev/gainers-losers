@@ -12,22 +12,22 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-[#73C2FB] py-6">
+    <header className="bg-[#2a5574] py-6">
       <div className="container flex flex-wrap gap-4 lg:gap-0 items-center justify-between px-5">
         <div className="nab_brand">
           <Link to="/">
             <img src={navBrand} alt="nav-brand" />
           </Link>
         </div>
-        {!user && (
+        {/* {!user && (
           <Link to="/signin">
             <button className="py-3 px-8 bg-white rounded-full text-base font-normal text-[#212121]">
               Sign In
             </button>
           </Link>
-        )}
+        )} */}
 
-        {user && (
+        {/* {user && (
           <div className="space-x-3">
             <Link to="/country-list">
               <button className="py-3 px-8 bg-white rounded-full text-base font-normal text-[#212121]">
@@ -41,7 +41,7 @@ const Header = () => {
               Logout
             </button>
           </div>
-        )}
+        )} */}
       </div>
     </header>
   );

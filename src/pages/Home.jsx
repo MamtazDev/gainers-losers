@@ -107,7 +107,7 @@ const Home = () => {
                   name="countrySelection"
                   checked={index === selectedCountryIndex}
                   onChange={() => handleFilter(index)}
-                  className="mr-2 form-radio w-[14px] h-[14px] cursor-pointer appearance-none rounded-full border-2 border-gray-[#73C2FB] checked:bg-[#73C2FB] checked:border-transparent checked:ring-2 checked:ring-[#73C2FB] checked:ring-offset-2 checked:ring-opacity-50"
+                  className="mr-2 form-radio w-[14px] h-[14px] cursor-pointer appearance-none rounded-full border-2 border-gray-[#73C2FB] checked:bg-[#2a5574] checked:border-transparent checked:ring-2 checked:ring-[#2a5574] checked:ring-offset-2 checked:ring-opacity-50"
                 />
                 <label
                   htmlFor={countryData}
@@ -126,24 +126,24 @@ const Home = () => {
           <div className="w-full shadow-customShadow rounded-[8px] bg-white">
             <div className="border-gray-200 w-full bg-white rounded-[8px] overflow-auto no_scrollbar max-h-[800px] ">
               <table className="w-full leading-normal no_scrollbar">
-                <thead className="  px-6 py-4  hover:cursor-pointer uppercase ">
-                  <tr>
+                <thead className="px-6 py-4  hover:cursor-pointer uppercase ">
+                  <tr className="">
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">No.</span>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Name</span>
                     </th>
                     <th
                       scope="col"
                       onClick={() => handleSort("Market Cap")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Market Cap</span>
                       <div className="inline-block">
@@ -173,20 +173,20 @@ const Home = () => {
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Industry</span>
                     </th>
                     <th
                       scope="col"
-                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Sector</span>
                     </th>
                     <th
                       scope="col"
                       onClick={() => handleSort("oneDay")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">1 Day</span>
                       <div className="inline-block">
@@ -217,7 +217,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneWeek")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">1 Week</span>
                       <div className="inline-block">
@@ -248,7 +248,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">1 Month</span>
                       <div className="inline-block">
@@ -279,7 +279,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("threeMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">3 Months</span>
                       <div className="inline-block">
@@ -310,7 +310,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("sixMonth")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-right capitalize "
                     >
                       <span className="pr-2">6 Months</span>
                       <div className="inline-block">
@@ -341,7 +341,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("oneYear")}
-                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#73C2FB] text-left capitalize "
+                      className="whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] capitalize text-right"
                     >
                       <span className="pr-2">1 Year</span>
                       <div className="inline-block">
@@ -429,7 +429,7 @@ const Home = () => {
                           />
                         </div>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200 text-right">
                         <p
                           className={`${
                             tableItem.oneDay <= 0
@@ -440,7 +440,7 @@ const Home = () => {
                           {tableItem.oneDay.toFixed(2)} B
                         </p>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200 text-right">
                         <p
                           className={`${
                             tableItem.oneWeek <= 0
@@ -451,7 +451,7 @@ const Home = () => {
                           {tableItem.oneWeek.toFixed(2)} B
                         </p>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200 text-right">
                         <p
                           className={`${
                             tableItem.oneMonth <= 0
@@ -462,7 +462,7 @@ const Home = () => {
                           {tableItem.oneMonth.toFixed(2)} B
                         </p>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200 text-right">
                         <p
                           className={`${
                             tableItem.threeMonth <= 0
@@ -473,7 +473,7 @@ const Home = () => {
                           {tableItem.threeMonth.toFixed(2)} B
                         </p>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200 text-right">
                         <p
                           className={`${
                             tableItem.sixMonth <= 0
@@ -484,7 +484,7 @@ const Home = () => {
                           {tableItem.sixMonth.toFixed(2)} B
                         </p>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200 text-right">
                         <p
                           className={`${
                             tableItem.oneYear <= 0
