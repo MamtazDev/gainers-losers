@@ -27,7 +27,7 @@ const Header = () => {
           </Link>
         )} */}
 
-        {/* {user && (
+        {user && (
           <div className="space-x-3">
             <Link to="/country-list">
               <button className="py-3 px-8 bg-white rounded-full text-base font-normal text-[#212121]">
@@ -41,7 +41,7 @@ const Header = () => {
               Logout
             </button>
           </div>
-        )} */}
+        )}
       </div>
     </header>
   );

@@ -12,11 +12,8 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <PrivateRoute roles={["admin"]}>
-            <Home />
-          </PrivateRoute>
-        ),
+        element: 
+            <Home />,
       },
       {
         path: "/signin",
