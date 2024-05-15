@@ -143,7 +143,7 @@ const Home = () => {
                     <th
                       scope="col"
                       onClick={() => handleSort("Market Cap")}
-                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 whitespace-nowrap text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574]  text-right capitalize "
                     >
                       <span className="pr-2">Market Cap</span>
                       <div className="inline-block">
@@ -173,7 +173,7 @@ const Home = () => {
                     </th>
                     <th
                       scope="col"
-                      className="sticky top-0 text-white text-base font-bold py-4 lg:py-8 px-6 bg-[#2a5574] text-left capitalize "
+                      className="sticky top-0 text-white text-base font-bold py-4 lg:py-8 px-12 bg-[#2a5574] text-left capitalize "
                     >
                       <span className="pr-2">Industry</span>
                     </th>
@@ -400,12 +400,12 @@ const Home = () => {
                             tableItem["Market Cap"] <= 0
                               ? "text-[#EB0B0B]"
                               : "text-[#191E29]"
-                          } text-sm font-medium `}
+                          } text-sm font-medium   text-right`}
                         >
                           {parseFloat(tableItem["Market Cap"]).toFixed(2)} B
                         </p>
                       </td>
-                      <td className="whitespace-nowrap py-3 lg:py-5 px-6 border-b border-gray-200">
+                      <td className="whitespace-nowrap py-3 lg:py-5 px-12 border-b border-gray-200">
                         <div
                           id={`Industry-${index}`}
                           className="text-sm font-medium text-[#191E29]"
